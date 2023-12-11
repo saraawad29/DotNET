@@ -1,0 +1,14 @@
+C:\Users\Sara AWAD\Desktop\cours.informatique\C#\cours\consoleProject\bin\Debug\net8.0\consoleProject.exe
+C:\Users\Sara AWAD\Desktop\cours.informatique\C#\cours\consoleProject\bin\Debug\net8.0\consoleProject.deps.json
+C:\Users\Sara AWAD\Desktop\cours.informatique\C#\cours\consoleProject\bin\Debug\net8.0\consoleProject.runtimeconfig.json
+C:\Users\Sara AWAD\Desktop\cours.informatique\C#\cours\consoleProject\bin\Debug\net8.0\consoleProject.dll
+C:\Users\Sara AWAD\Desktop\cours.informatique\C#\cours\consoleProject\bin\Debug\net8.0\consoleProject.pdb
+C:\Users\Sara AWAD\Desktop\cours.informatique\C#\cours\consoleProject\obj\Debug\net8.0\consoleProject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Sara AWAD\Desktop\cours.informatique\C#\cours\consoleProject\obj\Debug\net8.0\consoleProject.AssemblyInfoInputs.cache
+C:\Users\Sara AWAD\Desktop\cours.informatique\C#\cours\consoleProject\obj\Debug\net8.0\consoleProject.AssemblyInfo.cs
+C:\Users\Sara AWAD\Desktop\cours.informatique\C#\cours\consoleProject\obj\Debug\net8.0\consoleProject.csproj.CoreCompileInputs.cache
+C:\Users\Sara AWAD\Desktop\cours.informatique\C#\cours\consoleProject\obj\Debug\net8.0\consoleProject.dll
+C:\Users\Sara AWAD\Desktop\cours.informatique\C#\cours\consoleProject\obj\Debug\net8.0\refint\consoleProject.dll
+C:\Users\Sara AWAD\Desktop\cours.informatique\C#\cours\consoleProject\obj\Debug\net8.0\consoleProject.pdb
+C:\Users\Sara AWAD\Desktop\cours.informatique\C#\cours\consoleProject\obj\Debug\net8.0\consoleProject.genruntimeconfig.cache
+C:\Users\Sara AWAD\Desktop\cours.informatique\C#\cours\consoleProject\obj\Debug\net8.0\ref\consoleProject.dll
