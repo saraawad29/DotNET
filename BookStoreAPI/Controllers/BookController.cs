@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System;
 using BookStoreAPI.Entities;
 
 namespace BookStoreAPI.Controllers; //bookstoreAPI est l'espace 
@@ -29,4 +30,10 @@ public class BookController : ControllerBase
     //     Console.WriteLine(book.Title);
     //     return CreatAtAction(nameof(GetBooks), new {id = book.Id}, book);
     // }
+    [HttpPost]
+        public IActionResult CreateBook(Book book)
+        {
+            Console.WriteLine(book.Title);
+            return CreatedAtAction(nameof(GetBooks), new { id = book.Id }, book);
+        }
 }
