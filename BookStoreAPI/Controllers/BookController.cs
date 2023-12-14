@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System;
 using BookStoreAPI.Entities;
 using Microsoft.EntityFrameworkCore;
+using AutoMapper;
+using BookStoreAPI.Models;
 
 namespace BookStoreAPI.Controllers; //bookstoreAPI est l'espace 
 
@@ -14,37 +16,37 @@ namespace BookStoreAPI.Controllers; //bookstoreAPI est l'espace
 public class BookController : ControllerBase
 {
     private readonly ApplicationDbContext _dbContext;
-
-    public BookController(ApplicationDbContext dbContext)
+    private readonly IMapper _mapper;
+    public BookController(ApplicationDbContext dbContext, IMapper mapper)
     {
         _dbContext = dbContext;
+        _mapper = mapper;
     }
 
-    [HttpGet("books")]
-    public ActionResult<List<Book>> GetBooks()
-    {
-
-        var books = new List<Book>
-        {
-            new() { Id = 1, Title = "Le seigneur des anneaux", Author = "J.R.R Tolkien" }
-        };
-
-        return Ok(books);
-    }
-
-    // [HttpPost]
-    // public CreateBook ([FromBody] Book book) //[FromBody] permet de dire ou il faut aller chercher dans le Frombody pour avoir le Book
+    // [HttpGet("books")]
+    // public ActionResult<List<Book>> GetBooks()
     // {
-    //     Console.WriteLine(book.Title);
-    //     return CreatAtAction(nameof(GetBooks), new {id = book.Id}, book);
-    // }
-    // [HttpPost]
-    //     public IActionResult CreateBook(Book book)
+
+    //     var books = new List<Book>
     //     {
-    //         Console.WriteLine(book.Title);
-    //         return CreatedAtAction(nameof(GetBooks), new { id = book.Id }, book);
-    //     }
-[HttpPost]
+    //         new() { Id = 1, Title = "Le seigneur des anneaux", Author = "J.R.R Tolkien" }
+    //     };
+
+    //     return Ok(books);
+    // }
+
+    // méthode autoMapper 
+    [HttpGet]
+    public async Task<ActionResult<List<BookDto>>> GetBooks()
+    {
+        var books = await _dbContext.Books.ToListAsync();
+
+        var booksDto = books.Select(book => _mapper.Map<BookDto>(book)).ToList();
+
+        return Ok(booksDto);
+    }
+
+    [HttpPost]
     [ProducesResponseType(201, Type = typeof(Book))]
     [ProducesResponseType(400)]
     public async Task<ActionResult<Book>> PostBook([FromBody] Book book)
