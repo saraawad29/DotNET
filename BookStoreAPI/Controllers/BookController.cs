@@ -8,9 +8,7 @@ using BookStoreAPI.Models;
 
 namespace BookStoreAPI.Controllers; //bookstoreAPI est l'espace 
 
-//est un annotation, elle permet de definir des métadonnées sur une classe 
-//ici elle permet de définir que la calss BookController est un controller API 
-// la décorateur
+// la décorateur /annotation
 [ApiController]
 [Route("api/[controller]")]//permet de ne plus mettre [HttpPost[books]]
 public class BookController : ControllerBase
@@ -49,26 +47,33 @@ public class BookController : ControllerBase
     [HttpPost]
     [ProducesResponseType(201, Type = typeof(Book))]
     [ProducesResponseType(400)]
-    public async Task<ActionResult<Book>> PostBook([FromBody] Book book)
+    //méthode renvoie une Task asynchrone contenant un objet Book
+    public async Task<ActionResult<Book>> CreateBook([FromBody] BookCreateRequestDto bookDto)
     {
+        if(bookDto == null)
+        return BadRequest();
 
-        if (book == null)
-        {
-            return BadRequest();
-        }
-        Book? addedBook = await _dbContext.Books.FirstOrDefaultAsync(b => b.Title == book.Title);
-        if (addedBook != null)
-        {
-            return BadRequest("Book already exists");
-        }
-        else
-        {
-        
-            await _dbContext.Books.AddAsync(book);
-            await _dbContext.SaveChangesAsync();
-            return Created("api/book", book);
+        var book = _mapper.Map<Book>(bookDto);
 
+        _dbContext.Books.Add(book);
+        await _dbContext.SaveChangesAsync(); //Enregistre les modifications dans db
+
+        return CreatedAtAction(nameof(GetBooks), new {id = book.Id}, book);
+    }
+
+    [HttpPost("validationTest")]
+    public ActionResult ValidationTest([FromBody] BookDto book)
+    {
+        if (book.Title == null)
+        {
+            ModelState.AddModelError("Title", "Le titre du livre est requis.");
         }
+
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+        return Ok();
     }
 
     [HttpPut("{id}")]
@@ -109,5 +114,3 @@ public class BookController : ControllerBase
     }
 
 }
-
-

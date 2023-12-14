@@ -18,7 +18,7 @@ public class ApplicationDbContext: DbContext
         // combine le chemin du dossier courant avec le nom du fichier de la base de données
         var dbPath = Path.Combine(currentDir, "bookstore.db");
         Console.WriteLine($"dbPath: {dbPath}");
-        optionsBuilder.UseSqlite($"Filename=P{dbPath}");
+        optionsBuilder.UseSqlite($"Filename={dbPath}");
 
     }
     public DbSet<Book> Books { get; set;} = default!; // Books c'est le nom de la table dasn DB; Book entity 

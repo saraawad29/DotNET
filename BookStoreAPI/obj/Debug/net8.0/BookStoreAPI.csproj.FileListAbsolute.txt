@@ -128,3 +128,4 @@ C:\Users\Sara AWAD\Desktop\cours.informatique\C#\cours\BookStoreAPI\obj\Debug\ne
 C:\Users\Sara AWAD\Desktop\cours.informatique\C#\cours\BookStoreAPI\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.BookStoreAPI.props
 C:\Users\Sara AWAD\Desktop\cours.informatique\C#\cours\BookStoreAPI\obj\Debug\net8.0\staticwebassets.pack.json
 C:\Users\Sara AWAD\Desktop\cours.informatique\C#\cours\BookStoreAPI\obj\Debug\net8.0\scopedcss\bundle\BookStoreAPI.styles.css
+C:\Users\Sara AWAD\Desktop\cours.informatique\C#\cours\BookStoreAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
